@@ -10,6 +10,9 @@ $(document).ready(function () {
       success: function (data) {
         $('getDataContainer').text();
         console.log('getData me retorno:%j', data);
+      },
+      headers: {
+        'Content-Type': 'application/json'
       }
     });
   });
@@ -23,6 +26,9 @@ $(document).ready(function () {
       success: function (data) {
         $('createContainer').text();
         console.log('create me retorno:%j', data);
+      },
+      headers: {
+        'Content-Type': 'application/json'
       }
     });
   });
@@ -36,6 +42,9 @@ $(document).ready(function () {
       success: function (data) {
         $('deleteContainer').text(data);
         console.log('delete me retorno:%j', data);
+      },
+      headers: {
+        'Content-Type': 'application/json'
       }
     });
   });

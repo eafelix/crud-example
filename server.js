@@ -14,7 +14,7 @@ app.use(express.static('public'));
 app.get('/getData', function (req, res) {
   console.log('[x] Llego un pedido a /getData con estos datos: %j', req.body);
   console.log('[x] Respondo al pedido con: %j', arr);
-  res.write(arr);
+  res.write(JSON.stringify(arr));
   res.end();
 });
 
@@ -22,7 +22,7 @@ app.post('/create', function (req, res) {
   console.log('[x] Llego un pedido a /create con estos datos :%j', req.body);
   arr.push({id: res.body.id, name: req.body.data});
   console.log('[x] Respondo al pedido con: %j', arr);
-  res.write(arr);
+  res.json(arr); // es lo mismo que res.write(JSON.stringyfy(arr));
   res.end();
 });
 
@@ -34,7 +34,7 @@ app.post('/delete', function (req, res) {
     }
   });
   console.log('[x] Respondo al pedido con: %j', arr);
-  res.write(arr);
+  res.json(arr); // es lo mismo que res.write(JSON.stringyfy(arr));
   res.end();
 });
 
