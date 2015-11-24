@@ -6,9 +6,8 @@ $(document).ready(function () {
     $.ajax({
       type: 'GET',
       url: '/getData',
-      data: {name: 'luke', id: 1},
       success: function (data) {
-        $('getDataContainer').text();
+        $('.getDataContainer').empty().text(JSON.stringify(data));
         console.log('getData me retorno:%j', data);
       },
       headers: {
@@ -22,9 +21,9 @@ $(document).ready(function () {
     $.ajax({
       type: 'POST',
       url: '/create',
-      data: {name: 'luke', id: 1},
+      data: JSON.stringify({name: 'luke', id: '1'}),
       success: function (data) {
-        $('createContainer').text();
+        $('.createContainer').empty().text(JSON.stringify(data));
         console.log('create me retorno:%j', data);
       },
       headers: {
@@ -38,9 +37,9 @@ $(document).ready(function () {
     $.ajax({
       type: 'POST',
       url: '/delete',
-      data: {id: 1},
+      data: JSON.stringify({id: '1'}),
       success: function (data) {
-        $('deleteContainer').text(data);
+        $('.deleteContainer').empty().text(JSON.stringify(data));
         console.log('delete me retorno:%j', data);
       },
       headers: {
